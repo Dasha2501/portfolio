@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+    <title>Portfolio - Darya Yakymenko</title>
+  </head>
+  <body>
+    <div id="root">
+      <header class="header">
+        <div class="wrapper">
+          <div class="headerBody">
+            <a href="/" class="headerLogo">Darya Yakymenko</a>
+            <nav class="nav" role="navigation">
+              <ul>
+                <li><a href="#projects" class="navLink">Projects</a></li>
+                <li><a href="#about" class="navLink">About me</a></li>
+                <li><a href="#cv" class="navLink">CV</a></li>
+                <li><a href="#contact" class="navLink">Contact</a></li>
+              </ul>
+            </nav>
+            <button type="menu" class="burgerNav">
+              <span class="burgerLine"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="titleBlock">
+        <a href="#projects">
+          <button></button>
+        </a>
+      </div>
+
+      <main>
+        <section id="projects">
+          <div class="wrapper">
+            <h2 class="title">Projects</h2>
+            <ul class="userProjects">
+              {% for work in portfolio %}
+              <li>
+                <h3>{{ work['name'] }}</h3>
+                <a href="{{ work['link'] }}" target="_blank">
+                  <img
+                    src="{{ url_for('static', filename=work['image']) }}"
+                    alt="{{ work['name'] }}"
+                  />
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </section>
+
+        <section id="about">
+          <div class="wrapper">
+            <div class="aboutBody">
+              <h2 class="title">About Me</h2>
+              <p>
+                I am a young, ambitious IT professional with a passion for
+                quality assurance testing of software and web development,
+                including websites and landing pages. My skills include
+                proficiency in programming languages such as HTML, CSS,
+                JavaScript, as well as knowledge of QA methodologies and tools
+                such as functional testing, manual testing, and test automation.
+                I am a fast learner and always open to new challenges and
+                opportunities to enhance my IT skills. Ready to contribute to a
+                team and achieve success in any project.
+              </p>
+              <div class="cvInfo">
+                <p><b>City:</b> Kyiv, Ukraine</p>
+
+                <p>
+                  <b>Phone:</b> <a href="tel: +380983170583">+380983170583</a>
+                </p>
+								
+                <p>
+                  <b>Email:</b>
+                  <a href="mailto: dasaakimenko860@gmail.com"
+                    >dasaakimenko860@gmail.com</a
+                  >
+                </p>
+                <p>
+                  <b>Telegram:</b>
+                  <a target="_blank" href="https://t.me/dashuni_4ka"
+                    >@dashuni_4ka</a
+                  >
+                </p>
+                <p>
+                  <b>LinkedIn:</b>
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/dasha-yakymenko-7a10ba292/"
+                    >https://www.linkedin.com/in/dasha-yakymenko-7a10ba292/</a
+                  >
+                </p>
+                <p>
+                  <b>Github:</b>
+                  <a target="_blank" href="https://github.com/Dasha2501"
+                    >https://github.com/Dasha2501</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="reviews">
+          <div class="wrapper">
+            <h2 class="title">Reviews</h2>
+            <div class="reviewsContainer">
+              <div class="review">
+                <p class="reviewText">
+                  "I worked with Dasha on a joint project to create a website.
+                  She proved herself to be responsible and A persistent
+                  developer who is always open to new knowledge and ideas."
+                </p>
+                <p class="reviewAuthor">- Ivan Ivanov, Project Manager</p>
+              </div>
+              <div class="review">
+                <p class="reviewText">
+                  "Dasha is distinguished by her attention to detail and
+                  commitment to high quality work. She's a quick learner and
+                  able to solve complex problems."
+                </p>
+                <p class="reviewAuthor">- Maria Petrova, Senior Developer</p>
+              </div>
+              <div class="review">
+                <p class="reviewText">
+                  "Dasha has in-depth knowledge of HTML, CSS, and JavaScript,
+                  making her a valuable specialist in web development. It
+                  creates beautiful and functional websites."
+                </p>
+                <p class="reviewAuthor">- Oleksandr Sydorenko, Web Developer</p>
+              </div>
+              <div class="review">
+                <p class="reviewText">
+                  "I was impressed by Dasha's professionalism and creativity in
+                  creating websites. She really understands customer needs and
+                  brings them to life with high quality."
+                </p>
+                <p class="reviewAuthor">
+                  - Hanna Kovalenko, Head of web studio
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cv">
+          <div class="wrapper">
+            <div class="cvBody">
+              <h2 class="title">CV</h2>
+              <div class="cv">
+                <h3>Trainee QA</h3>
+                <p class="objectives">
+                  <b>Carrier objectives:</b> Looking for a full-time job as a
+                  Junior Frontend Developer.
+                </p>
+                <p class="summary">
+                  <b>Summary:</b> I have non-commercial experience in creating
+                  website.
+                </p>
+                <div class="skills">
+                  <i class="fa-solid fa-rectangle-list" aria-hidden="true"></i
+                  ><b>Skills:</b>
+                  <ul>
+                    <li>HTML, CSS</li>
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>3D Modeling</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="wrapper">
+            <h2 class="title">Contact Us</h2>
+            <form action="/" method="post">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Submit</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="wrapper">
+          <div class="footerBody">
+            <p>&copy; 2024 Darya Yakymenko. All rights reserved.</p>
+            <div class="social-icons">
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+      defer
+    ></script>
+  </body>
+  <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">
+    Push up
+  </button>
+</html>
